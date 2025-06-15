@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie.title }} | MovieZone</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="single-movie-container">
+        <a href="{% url 'movie_list' %}" class="back-link">← Back to Movie List</a>
+
+        <div class="movie-details">
+            <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster">
+
+            <div class="movie-info">
+                <h1>{{ movie.title }}</h1>
+                <p><strong>Year:</strong> {{ movie.year }}</p>
+                <p><strong>Genre:</strong> {{ movie.genre }}</p>
+                <p><strong>Duration:</strong> {{ movie.duration }} min</p>
+                <p class="movie-description">{{ movie.description }}</p>
+
+                {% if movie.trailer_url %}
+                <div class="trailer-container">
+                    <iframe src="{{ movie.trailer_url }}" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

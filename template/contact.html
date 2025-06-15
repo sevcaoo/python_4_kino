@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | MovieZone</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="contact-container">
+        <h1>📬 Contact Us</h1>
+        <p>If you have any questions, feedback, or suggestions — feel free to reach out!</p>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> moviezone@gmail.com</p>
+            <p><strong>Phone:</strong> +998 90 123 45 67</p>
+            <p><strong>Address:</strong> Tashkent, Uzbekistan</p>
+        </div>
+
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+    </div>
+
+</body>
+</html>

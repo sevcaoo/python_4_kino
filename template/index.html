@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | MovieZone</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>🎥 Welcome to MovieZone</h1>
+        <nav class="main-nav">
+            <a href="{% url 'movie_list' %}">Movies</a>
+            <a href="#">Genres</a>
+            <a href="#">Top Rated</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Discover your next favorite movie</h2>
+        <p>Watch trailers, explore genres, and dive into movie details</p>
+        <a href="{% url 'movie_list' %}" class="btn">Browse Movies</a>
+    </section>
+
+</body>
+</html>
